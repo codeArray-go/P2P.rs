@@ -44,11 +44,12 @@ fn handle_connection(my_addr: String, peer: Peers, stream: TcpStream) {
                         broadcast(&msg, &peer, Some(&peer_addr));
                     }
 
-                    Err(e) => {}
+                    Err(e) => eprint!("Error: {}", e),
                 }
             }
 
             Err(e) => {
+                eprintln!("Error: {}", e);
                 break;
             }
         }
